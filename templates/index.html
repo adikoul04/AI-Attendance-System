@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facial Recognition Attendance System</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="canvas">
+        <header>
+            <h1>Facial Recognition System</h1>
+            <p>Your AI-powered attendance assistant</p>
+        </header>
+        <main>
+            <div class="card">
+                <h2>Dataset Recording</h2>
+                <label for="name">Enter Name:</label>
+                <input type="text" id="name" placeholder="Enter your name">
+                <button id="start-dataset">Start Recording</button>
+            </div>
+            <div class="card">
+                <h2>Attendance Tracking</h2>
+                <button id="start-attendance">Start Attendance</button>
+            </div>
+        </main>
+        <div id="response" class="response"></div>
+        <footer>
+            <p>&copy; 2024 Facial Recognition System. Designed for modern AI solutions.</p>
+        </footer>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
