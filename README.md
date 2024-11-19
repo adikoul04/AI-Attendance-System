@@ -73,7 +73,7 @@ A modern, AI-powered web application for attendance tracking and dataset recordi
    ```bash
    git clone https://github.com/adikoul04/AI4ALL-Computer-Vision-Project.git
    cd AI4ALL-Computer-Vision-Project
-
+   ```
 
 2. Set up Virtual Environment
    ```bash
@@ -82,14 +82,12 @@ A modern, AI-powered web application for attendance tracking and dataset recordi
 
    # Make sure to install necessary libraries in virtual environment if not installed
    # Ex: pip install scikit-learn
-
+   ```
+  
 3. Start Flask Server
    ```bash
     python app.py
 4. Open the application in your browser
    ```bash
    http://127.0.0.1:5000/
-  
-         
-
-   
+   ```
