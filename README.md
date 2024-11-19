@@ -38,21 +38,21 @@ A modern, AI-powered web application for attendance tracking and dataset recordi
 ## How It Works
 
 1. **Dataset Recording**:
-   - Users enter their name in the frontend form and click **Start Recording**.
-   - The backend triggers the `Dataset.py` script, which:
-     - Activates the webcam.
-     - Detects and captures facial data in real-time.
-     - Saves the data for future use in face recognition.
+  - Users enter their name in the frontend form and click **Start Recording**.
+  - The backend triggers the `Dataset.py` script, which:
+    - Activates the webcam.
+    - Detects and captures facial data in real-time.
+    - Saves the data for future use in face recognition.
 
 2. **Attendance Tracking**:
-   - Users click **Start Attendance** to activate face recognition.
-   - The backend triggers the `Attendance.py` script, which:
-     - Activates the webcam and scans for faces.
-     - Matches detected faces against the pre-recorded dataset.
-     - Logs recognized users' names and timestamps into a CSV file.
+  - Users click **Start Attendance** to activate face recognition.
+  - The backend triggers the `Attendance.py` script, which:
+    - Activates the webcam and scans for faces.
+    - Matches detected faces against the pre-recorded dataset.
+    - Logs recognized users' names and timestamps into a CSV file.
 
 3. **Frontend Interaction**:
-   - Provides real-time updates with dynamic messages and user-friendly controls.
+  - Provides real-time updates with dynamic messages and user-friendly controls.
 
 ## Use Cases
 
@@ -70,24 +70,25 @@ A modern, AI-powered web application for attendance tracking and dataset recordi
 ## How to Run
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/adikoul04/AI4ALL-Computer-Vision-Project.git
-   cd AI4ALL-Computer-Vision-Project
-   ```
+  ```bash
+  git clone https://github.com/adikoul04/AI4ALL-Computer-Vision-Project.git
+  cd AI4ALL-Computer-Vision-Project
+  ```
 
 2. Set up Virtual Environment
-   ```bash
-   python -m venv face_rec_env
-   source face_rec_env/bin/activate  # On Windows use: face_rec_env\Scripts\activate
+  ```bash
+  python -m venv face_rec_env
+  source face_rec_env/bin/activate  # On Windows use: face_rec_env\Scripts\activate
 
-   # Make sure to install necessary libraries in virtual environment if not installed
-   # Ex: pip install scikit-learn
-   ```
+  # Make sure to install necessary libraries in virtual environment if not installed
+  # Ex: pip install scikit-learn
+  ```
   
 3. Start Flask Server
-   ```bash
-    python app.py
+  ```bash
+  python app.py
+  ```
 4. Open the application in your browser
-   ```bash
-   http://127.0.0.1:5000/
-   ```
+  ```bash
+  http://127.0.0.1:5000/
+  ```
