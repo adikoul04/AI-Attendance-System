@@ -80,6 +80,9 @@ A modern, AI-powered web application for attendance tracking and dataset recordi
    python -m venv face_rec_env
    source face_rec_env/bin/activate  # On Windows use: face_rec_env\Scripts\activate
 
+   # Make sure to install necessary libraries in virtual environment if not installed
+   # Ex: pip install scikit-learn
+
 3. Start Flask Server
    ```bash
     python app.py
