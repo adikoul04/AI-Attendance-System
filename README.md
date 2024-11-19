@@ -71,8 +71,8 @@ A modern, AI-powered web application for attendance tracking and dataset recordi
 
 1. Clone the repository:
   ```bash
-  git clone https://github.com/adikoul04/AI4ALL-Computer-Vision-Project.git
-  cd AI4ALL-Computer-Vision-Project
+  git clone https://github.com/adikoul04/AI-Attendance-System.git
+  cd AI-Attendance-System
   ```
 
 2. Set up Virtual Environment
