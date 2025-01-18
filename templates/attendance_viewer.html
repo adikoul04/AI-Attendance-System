@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Viewer - Facial Recognition System</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+</head>
+<body>
+    <div class="canvas">
+        <header>
+            <h1>Attendance Records</h1>
+            <p>View and manage attendance records</p>
+        </header>
+        
+        <div class="card">
+            <div class="date-selector">
+                <label for="date">Select Date: </label>
+                <input type="date" id="date" onchange="loadAttendance()">
+            </div>
+            <div id="attendance-data">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attendance-body">
+                        <tr>
+                            <td colspan="2" class="no-data">Please select a date to view attendance</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button onclick="window.location.href='/'">Back to Home</button>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Facial Recognition System. Designed for modern AI solutions.</p>
+        </footer>
+    </div>
+
+    <script>
+        function formatDate(date) {
+            const d = new Date(date);
+            const month = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+            const year = d.getFullYear();
+            return `${month}-${day}-${year}`;
+        }
+
+        function loadAttendance() {
+            const date = document.getElementById('date').value;
+            if (!date) return;
+            
+            const formattedDate = formatDate(date);
+            const fileName = `Attendance/Attendance_${formattedDate}.csv`;
+
+            fetch(fileName)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('No attendance data for this date');
+                    }
+                    return response.text();
+                })
+                .then(csv => {
+                    Papa.parse(csv, {
+                        complete: function(results) {
+                            displayAttendance(results.data);
+                        }
+                    });
+                })
+                .catch(error => {
+                    document.getElementById('attendance-body').innerHTML = 
+                        `<tr><td colspan="2" class="no-data">${error.message}</td></tr>`;
+                });
+        }
+
+        function displayAttendance(data) {
+            const tbody = document.getElementById('attendance-body');
+            if (data.length <= 1) {
+                tbody.innerHTML = '<tr><td colspan="2" class="no-data">No attendance records found</td></tr>';
+                return;
+            }
+
+            const rows = data.slice(1).map(row => {
+                if (row.length >= 2) {
+                    return `<tr>
+                        <td>${row[0]}</td>
+                        <td>${row[1]}</td>
+                    </tr>`;
+                }
+                return '';
+            }).join('');
+
+            tbody.innerHTML = rows || '<tr><td colspan="2" class="no-data">No valid attendance records found</td></tr>';
+        }
+
+        // Set today's date as default
+        document.getElementById('date').valueAsDate = new Date();
+        loadAttendance();
+    </script>
+</body>
+</html>
