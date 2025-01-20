@@ -47,11 +47,8 @@
     </div>
 
     <script>
-        function formatDate(date) {
-            const d = new Date(date);
-            const month = String(d.getMonth() + 1).padStart(2, '0');
-            const day = String(d.getDate()).padStart(2, '0');
-            const year = d.getFullYear();
+        function formatDate(dateString) {
+            const [year, month, day] = dateString.split('-');
             return `${month}-${day}-${year}`;
         }
 
@@ -102,7 +99,6 @@
             tbody.innerHTML = rows || '<tr><td colspan="2" class="no-data">No valid attendance records found</td></tr>';
         }
 
-        // Set today's date as default
         document.getElementById('date').valueAsDate = new Date();
         loadAttendance();
     </script>
